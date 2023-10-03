@@ -10,7 +10,7 @@ namespace Air_Light;
 $description = get_bloginfo( 'description', 'display' );
 ?>
 
-<div class="site-branding">
+<div class="navbar-brand">
 
   <p class="site-title">
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

@@ -32,3 +32,4 @@ if ( file_exists( get_theme_file_path( '/inc/includes/post-type.php' ) ) ) {
 }
 
 // Custom functions
+require 'pagination/functions.php';

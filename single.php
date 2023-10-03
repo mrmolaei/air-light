@@ -15,34 +15,23 @@ namespace Air_Light;
 the_post();
 get_header(); ?>
 
-<main class="site-main">
+  <main class="site-main">
+    <div class="container">
+      <div class="col-9 mx-auto">
+        <section class="block block-single">
+          <article class="article-content">
+            <?php
 
-  <section class="block block-single">
-    <article class="article-content">
+            get_template_part('template-parts/posts/content-single');
 
-      <h1><?php the_title(); ?></h1>
+            // If comments are open or we have at least one comment, load up the comment template.
+            if (comments_open() || get_comments_number()) {
+              comments_template();
+            } ?>
+          </article>
+        </section>
+      </div>
+    </div>
+  </main>
 
-      <?php the_content();
-
-      // Required by WordPress Theme Check, feel free to remove as it's rarely used in starter themes
-      wp_link_pages( array( 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'air-light' ), 'after' => '</div>' ) );
-
-      entry_footer();
-
-      if ( get_edit_post_link() ) {
-        edit_post_link( sprintf( wp_kses( __( 'Edit <span class="screen-reader-text">%s</span>', 'air-light' ), [ 'span' => [ 'class' => [] ] ] ), get_the_title() ), '<p class="edit-link">', '</p>' );
-      }
-
-      the_post_navigation();
-
-  		// If comments are open or we have at least one comment, load up the comment template.
-      if ( comments_open() || get_comments_number() ) {
-        comments_template();
-      } ?>
-
-    </article>
-  </section>
-
-</main>
-
-<?php get_footer();
+  <?php get_footer();

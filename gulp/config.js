@@ -1,6 +1,6 @@
 // Set theme dir
 const themeDir = './';
-const proxyUrl = 'https://airdev.test';
+const proxyUrl = 'myblog.local';
 
 module.exports = {
   cssnano: {
@@ -36,14 +36,10 @@ module.exports = {
       logLevel: 'debug',
       injectChanges: true,
       proxy: proxyUrl,
-      browser: 'Google Chrome',
+      browser: 'FireFox',
       open: false,
       notify: true,
       // Generate with: mkdir -p /var/www/certs && cd /var/www/certs && mkcert localhost 192.168.x.xxx ::1
-      https: {
-        key: "/var/www/certs/localhost-key.pem",
-        cert: "/var/www/certs/localhost.pem",
-      }
     },
   },
   styles: {
@@ -99,13 +95,5 @@ module.exports = {
       themeDir + 'inc/**/*.php',
       themeDir + 'template-parts/**/*.php'
     ]
-  },
-  phpcs: {
-    src: [themeDir + '**/*.php', '!' + themeDir + 'node_modules/**/*'],
-    opts: {
-      bin: '/usr/local/bin/phpcs',
-      standard: themeDir + 'phpcs.xml',
-      warningSeverity: 0
-    }
   }
 };
